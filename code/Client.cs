@@ -19,7 +19,7 @@ public partial class Client : Component
 		Connection = connection;
 		GameObject.Name = $"{Connection.Name} / {Connection.Id}";
 
-		if ( Connection.Local == connection )
+		if ( connection == Connection.Local )
 			Local = this;
 	}
 
@@ -56,7 +56,7 @@ public partial class Client : Component
 		obj.NetworkSpawn( Connection );
 		obj.Network.SetOwnerTransfer( ownerTransferMode );
 		obj.Network.SetOrphanedMode( networkOrphanMode );
-		obj.Name = $"{Connection.Name} - {obj.Name.ToUpper()} Pawn";
+		obj.Name = $"{Connection.DisplayName} - {obj.Name.ToUpper()} Pawn";
 
 		Pawn = pawn;
 		Pawn.OnAssign( this );

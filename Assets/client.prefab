@@ -1,0 +1,22 @@
+{
+  "RootObject": {
+    "__guid": "d9032409-9136-41b1-a285-e4a7e43981e0",
+    "Flags": 0,
+    "Name": "client",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Pawns.Client",
+        "__guid": "63935084-7a7c-4893-bad6-a6c12ebe1bcc"
+      }
+    ],
+    "Children": [],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}
