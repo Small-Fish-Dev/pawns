@@ -26,8 +26,10 @@ public partial class Client : Component
 	/// <summary>
 	/// Assigns the given pawn type as the client's current pawn.
 	/// </summary>
+	/// <param name="ownerTransferMode">The network owner transfer mode to apply to the new pawn.</param>
+	/// <param name="networkOrphanMode">The network orphan mode to apply to the new pawn.</param>
 	/// <returns>The pawn component that the client was assigned to.</returns>
-	public T AssignPawn<T>() where T : Pawn
+	public T AssignPawn<T>( OwnerTransfer ownerTransferMode = OwnerTransfer.Fixed, NetworkOrphaned networkOrphanMode = NetworkOrphaned.Destroy ) where T : Pawn
 	{
 		var pawnAttribute = TypeLibrary.GetType<T>().GetAttribute<PawnAttribute>();
 
@@ -52,6 +54,8 @@ public partial class Client : Component
 			Pawn.OnUnassign();
 
 		obj.NetworkSpawn( Connection );
+		obj.Network.SetOwnerTransfer( ownerTransferMode );
+		obj.Network.SetOrphanedMode( networkOrphanMode );
 		obj.Name = $"{Connection.Name} - {obj.Name.ToUpper()} Pawn";
 
 		Pawn = pawn;
