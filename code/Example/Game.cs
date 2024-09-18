@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Sandbox.Network;
 
 namespace Pawns.Example;
@@ -10,19 +11,19 @@ public sealed class Game : Component, Component.INetworkListener
 	[Property]
 	public PrefabFile SpectatePrefab { get; set; }
 
-	protected override void OnStart()
+	protected override async Task OnLoad()
 	{
+		if ( !Sandbox.Game.IsPlaying )
+			return;
+
 		if ( !GameNetworkSystem.IsActive )
 			GameNetworkSystem.CreateLobby();
-	}
 
-	public void OnActive( Connection channel )
-	{
 		var clientObj = SceneUtility.GetPrefabScene( ClientPrefab ).Clone();
-		clientObj.NetworkSpawn( channel );
+		clientObj.NetworkSpawn( Connection.Local );
 
 		var client = clientObj.Components.Get<Client>();
-		client.AssignConnection( channel );
+		client.AssignConnection( Connection.Local );
 
 		// Option #1
 		// The pawn component MUST have PawnAttribute.
@@ -31,5 +32,7 @@ public sealed class Game : Component, Component.INetworkListener
 		// Option #2
 		// The pawn component does NOT need PawnAttribute in this case.
 		// client.AssignPawn<SpectatePawn>(SpectatePrefab);
+
+		await GameTask.CompletedTask;
 	}
 }
