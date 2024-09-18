@@ -8,7 +8,7 @@ public sealed class SpectatePawn : Pawn
 
 	private Angles EyeAngles { get; set; }
 
-	protected override void OnAwake()
+	protected override void OnStart()
 	{
 		CameraComponent.Enabled = !IsProxy;
 	}

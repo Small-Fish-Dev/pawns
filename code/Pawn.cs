@@ -2,7 +2,7 @@ namespace Pawns;
 
 public abstract class Pawn : Component
 {
-	[Sync]
+	[HostSync, Sync]
 	public Client Owner { get; private set; }
 
 	public virtual void OnAssign( Client client )

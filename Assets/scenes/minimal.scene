@@ -13,10 +13,7 @@
         {
           "__type": "Pawns.Example.Game",
           "__guid": "b45e656c-e60b-4e69-90ae-8cc74e462566",
-          "ClientPrefab": {
-            "_type": "gameobject",
-            "prefab": "client.prefab"
-          }
+          "ClientPrefab": "client.prefab"
         }
       ]
     },

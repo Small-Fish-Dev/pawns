@@ -1,7 +1,7 @@
 {
   "Title": "pawns",
   "Type": "game",
-  "Org": "local",
+  "Org": "fish",
   "Ident": "pawns",
   "Schema": 1,
   "IncludeSourceFiles": false,
