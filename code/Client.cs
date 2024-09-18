@@ -20,7 +20,7 @@ public partial class Client : Component
 	public void AssignConnection( Connection connection )
 	{
 		ConnectionId = connection.Id;
-		GameObject.Name = $"{Connection.Name} / {Connection.Id}";
+		GameObject.Name = $"{Connection.DisplayName} - CLIENT";
 
 		if ( connection == Connection.Local )
 			Local = this;
@@ -70,10 +70,13 @@ public partial class Client : Component
 		if ( Pawn.IsValid() )
 			Pawn.OnUnassign();
 
-		if ( Connection is not null )
-			obj.NetworkSpawn( Connection );
+		if ( Connection is null )
+			Log.Warning( $"Client does not have a connection! Assigning to host." );
 
-		obj.Name = $"{Connection.DisplayName} - {obj.Name.ToUpper()} Pawn";
+		var assignedConnection = Connection ?? Connection.Host;
+		obj.NetworkSpawn( assignedConnection );
+
+		obj.Name = $"{assignedConnection.DisplayName} - {obj.Name.ToUpper()} Pawn";
 
 		Pawn = pawn;
 		Pawn.OnAssign( this );

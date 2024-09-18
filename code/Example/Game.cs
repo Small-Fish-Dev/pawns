@@ -23,10 +23,13 @@ public sealed class Game : Component, Component.INetworkListener
 
 		var client = clientObj.Components.Get<Client>();
 		client.AssignConnection( channel );
+
+		// Option #1
+		// The pawn component MUST have PawnAttribute.
 		client.AssignPawn<SpectatePawn>();
 
-		// or assign it via the prefab file!
-		// The pawn component does NOT need the PawnAttribute in this case.
+		// Option #2
+		// The pawn component does NOT need PawnAttribute in this case.
 		// client.AssignPawn<SpectatePawn>(SpectatePrefab);
 	}
 }
