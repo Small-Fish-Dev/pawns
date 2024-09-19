@@ -2,7 +2,7 @@
 
 > _"no we won't allow pawn games"_ -garry
 
-s&box library that provides support for the classic entity Pawn system. This is useful in cases where the player can take control of different controllers. For example, an FPS game where you have the regular play pawn but also a spectating pawn.
+s&box library that provides support for the classic entity Pawn system. This is useful in cases where the player can take control of different controllers. For example, an FPS game where you have the regular player state but also a spectating state.
 
 ## Example
 
