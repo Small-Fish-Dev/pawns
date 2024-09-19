@@ -30,11 +30,10 @@ public partial class Client : Component
 	/// Creates a <see cref="GameObject" /> from the given prefab file and assigns it as the client's current pawn.
 	/// </summary>
 	/// <param name="prefabFile">The prefab file that is used to create the pawn.</param>
-	/// <returns>The pawn component that the client was assigned to.</returns>
-	public T AssignPawn<T>( PrefabFile prefabFile ) where T : Pawn
+	public void AssignPawn( PrefabFile prefabFile )
 	{
 		var obj = SceneUtility.GetPrefabScene( prefabFile ).Clone();
-		return InternalAssign<T>( obj );
+		InternalAssign( obj );
 	}
 
 	/// <summary>
@@ -57,7 +56,13 @@ public partial class Client : Component
 		return InternalAssign<T>( obj ); ;
 	}
 
+
 	private T InternalAssign<T>( GameObject obj ) where T : Pawn
+	{
+		return (T)InternalAssign( obj );
+	}
+
+	private Pawn InternalAssign( GameObject obj )
 	{
 		var pawn = obj.Components.Get<Pawn>();
 		if ( !pawn.IsValid() )
@@ -81,6 +86,6 @@ public partial class Client : Component
 		Pawn = pawn;
 		Pawn.OnAssign( this );
 
-		return (T)pawn;
+		return pawn;
 	}
 }
