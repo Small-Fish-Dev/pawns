@@ -8,7 +8,7 @@ public partial class Client
 	{
 		if ( IsProxy )
 		{
-			Log.Info( Connection?.DisplayName );
+			Log.Info( Pawn );
 		}
 	}
 }

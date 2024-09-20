@@ -78,6 +78,8 @@ public partial class Client : Component
 
 		obj.Name = $"{assignedConnection.DisplayName} - {obj.Name.ToUpper()} Pawn";
 
+		Log.Info( $"Setting pawn variable in realm {Client.Local}" );
+
 		Pawn = pawn;
 		Pawn.OnAssign( this );
 
