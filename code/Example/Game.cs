@@ -12,8 +12,8 @@ public sealed class Game : Component, Component.INetworkListener
 
 	protected override void OnStart()
 	{
-		if ( !GameNetworkSystem.IsActive )
-			GameNetworkSystem.CreateLobby();
+		if ( !Networking.IsActive )
+			Networking.CreateLobby( new LobbyConfig() );
 	}
 
 	public void OnActive( Connection channel )

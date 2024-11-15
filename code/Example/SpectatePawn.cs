@@ -17,7 +17,7 @@ public sealed class SpectatePawn : Pawn
 	{
 		EyeAngles += Input.AnalogLook;
 		EyeAngles = EyeAngles.WithPitch( EyeAngles.pitch.Clamp( -90, 90 ) );
-		Transform.Rotation = EyeAngles.ToRotation();
-		Transform.Position += Input.AnalogMove * Transform.Rotation;
+		WorldRotation = EyeAngles.ToRotation();
+		WorldPosition += Input.AnalogMove * WorldRotation;
 	}
 }

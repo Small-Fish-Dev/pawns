@@ -1,6 +1,12 @@
-namespace Pawns;
+namespace Pawns.Example;
 
-public partial class Client
+public class Client : Pawns.Client
 {
-	// You can provide extra data to the client class via partial!
+	public static Client Local { get; private set; }
+
+	protected override void OnStart()
+	{
+		if ( !IsProxy )
+			Local = this;
+	}
 }

@@ -1,13 +1,14 @@
 namespace Pawns;
 
-public partial class Client : Component
+/// <summary>
+/// The base client that you should inherit off of.
+/// </summary>
+public abstract class Client : Component
 {
-	public static Client Local { get; private set; }
-
-	[HostSync, Sync]
+	[HostSync]
 	public System.Guid ConnectionId { get; private set; }
 
-	[HostSync, Sync]
+	[HostSync]
 	public Pawn Pawn { get; private set; }
 
 	public Connection Connection => Connection.Find( ConnectionId );
@@ -15,19 +16,18 @@ public partial class Client : Component
 	/// <summary>
 	/// Assigns the given connection as the client's current connection.
 	/// This connection will be used to give ownership to any future assigned pawns.
+	/// This must be called on the host!
 	/// </summary>
 	/// <param name="connection">The connection to assign to the client.</param>
 	public void AssignConnection( Connection connection )
 	{
 		ConnectionId = connection.Id;
 		GameObject.Name = $"{Connection.DisplayName} - CLIENT";
-
-		if ( connection == Connection.Local )
-			Local = this;
 	}
 
 	/// <summary>
 	/// Creates a <see cref="GameObject" /> from the given prefab file and assigns it as the client's current pawn.
+	/// This must be called on the host!
 	/// </summary>
 	/// <param name="prefabFile">The prefab file that is used to create the pawn.</param>
 	public void AssignPawn( PrefabFile prefabFile )
@@ -39,6 +39,7 @@ public partial class Client : Component
 	/// <summary>
 	/// Assigns the given pawn type as the client's current pawn.
 	/// The pawn type must have a <see cref="PawnAttribute" /> defined in order to use this method.
+	/// This must be called on the host!
 	/// </summary>
 	/// <returns>The pawn component that the client was assigned to.</returns>
 	public T AssignPawn<T>() where T : Pawn
@@ -80,7 +81,6 @@ public partial class Client : Component
 
 		var assignedConnection = Connection ?? Connection.Host;
 		obj.NetworkSpawn( assignedConnection );
-
 		obj.Name = $"{assignedConnection.DisplayName} - {obj.Name.ToUpper()} Pawn";
 
 		Pawn = pawn;
