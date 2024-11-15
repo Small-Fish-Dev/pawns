@@ -1,8 +1,8 @@
 {
-  "Title": "pawns",
+  "Title": "Pawn Example",
   "Type": "game",
   "Org": "fish",
-  "Ident": "pawns",
+  "Ident": "pawn_example",
   "Schema": 1,
   "IncludeSourceFiles": false,
   "Resources": null,

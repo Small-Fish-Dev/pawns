@@ -1,6 +1,6 @@
-namespace Pawns.Example;
+namespace ShrimplePawns.Example;
 
-public class Client : Pawns.Client
+public class Client : ShrimplePawns.Client
 {
 	public static Client Local { get; private set; }
 

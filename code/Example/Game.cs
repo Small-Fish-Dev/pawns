@@ -1,6 +1,6 @@
 using Sandbox.Network;
 
-namespace Pawns.Example;
+namespace ShrimplePawns.Example;
 
 public sealed class Game : Component, Component.INetworkListener
 {

@@ -1,6 +1,6 @@
 using System;
 
-namespace Pawns;
+namespace ShrimplePawns;
 
 /// <summary>
 /// This attribute should be given to any class that derives Pawn.cs

@@ -1,4 +1,4 @@
-namespace Pawns.Example;
+namespace ShrimplePawns.Example;
 
 [Pawn( "spectate.prefab" )]
 public sealed class SpectatePawn : Pawn

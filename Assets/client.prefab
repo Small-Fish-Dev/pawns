@@ -8,8 +8,8 @@
     "NetworkOrphaned": 1,
     "Components": [
       {
-        "__type": "Pawns.Example.Client",
-        "__guid": "0324c950-b5aa-4c23-81f7-277796885975"
+        "__type": "ShrimplePawns.Example.Client",
+        "__guid": "5736cf9f-6a4b-45e0-847c-3a3c4dacb3f8"
       }
     ],
     "Children": [],
@@ -44,5 +44,6 @@
   "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
   "__references": [],
+  "HasUnsavedChanges": false,
   "__version": 1
 }

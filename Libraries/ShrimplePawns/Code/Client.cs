@@ -1,4 +1,4 @@
-namespace Pawns;
+namespace ShrimplePawns;
 
 /// <summary>
 /// The base client that you should inherit off of.

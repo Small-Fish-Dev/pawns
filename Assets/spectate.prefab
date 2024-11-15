@@ -8,8 +8,8 @@
     "NetworkOrphaned": 1,
     "Components": [
       {
-        "__type": "Pawns.Example.SpectatePawn",
-        "__guid": "daa0d70b-3506-4433-a2a3-008893e2f5c2"
+        "__type": "ShrimplePawns.Example.SpectatePawn",
+        "__guid": "7644fbf2-7c05-40df-b0dd-4ead46f84ac1"
       },
       {
         "__type": "Sandbox.CameraComponent",
@@ -30,12 +30,37 @@
       }
     ],
     "Children": [],
-    "__variables": []
+    "__variables": [],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
   },
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
   "__references": [],
+  "HasUnsavedChanges": false,
   "__version": 1
 }

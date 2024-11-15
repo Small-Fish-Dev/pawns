@@ -1,4 +1,4 @@
-namespace Pawns;
+namespace ShrimplePawns;
 
 public abstract class Pawn : Component
 {
