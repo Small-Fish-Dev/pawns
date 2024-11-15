@@ -1,4 +1,4 @@
-# Pawns
+# Shrimple Pawns
 
 > _"no we won't allow pawn games"_ -garry
 
@@ -36,4 +36,4 @@ client.AssignPawn<SpectatePawn>();
 client.AssignPawn(SpectatePrefab);
 ```
 
-[A full example can be viewed here.](https://github.com/Small-Fish-Dev/pawns/tree/main/code/Example)
+[A full example can be viewed here.](https://github.com/Small-Fish-Dev/shrimple_pawns/tree/main/code/Example)
