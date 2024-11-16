@@ -5,6 +5,8 @@ namespace ShrimplePawns;
 /// </summary>
 public abstract class Client : Component
 {
+	public static Client Local { get; private set; }
+
 	[HostSync]
 	public System.Guid ConnectionId { get; private set; }
 
@@ -57,7 +59,6 @@ public abstract class Client : Component
 		return InternalAssign<T>( obj ); ;
 	}
 
-
 	private T InternalAssign<T>( GameObject obj ) where T : Pawn
 	{
 		return (T)InternalAssign( obj );
@@ -87,5 +88,11 @@ public abstract class Client : Component
 		Pawn.OnAssign( this );
 
 		return pawn;
+	}
+
+	protected override void OnStart()
+	{
+		if ( !IsProxy )
+			Local = this;
 	}
 }
