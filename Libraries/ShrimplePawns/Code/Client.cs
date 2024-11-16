@@ -5,15 +5,30 @@ namespace ShrimplePawns;
 /// </summary>
 public abstract class Client : Component
 {
-	public static Client Local { get; private set; }
-
 	[HostSync]
 	public System.Guid ConnectionId { get; private set; }
 
 	[HostSync]
-	public Pawn Pawn { get; private set; }
+	protected Pawn Pawn { get; set; }
 
 	public Connection Connection => Connection.Find( ConnectionId );
+
+	/// <summary>
+	/// Get the pawn and verify it is valid.
+	/// </summary>
+	public bool TryGetPawn<T>( out T pawn ) where T : Pawn
+	{
+		pawn = GetPawn<T>();
+		return pawn.IsValid();
+	}
+
+	/// <summary>
+	/// Get the pawn.
+	/// </summary>
+	public T GetPawn<T>() where T : Pawn
+	{
+		return Pawn as T;
+	}
 
 	/// <summary>
 	/// Assigns the given connection as the client's current connection.
@@ -88,11 +103,5 @@ public abstract class Client : Component
 		Pawn.OnAssign( this );
 
 		return pawn;
-	}
-
-	protected override void OnStart()
-	{
-		if ( !IsProxy )
-			Local = this;
 	}
 }
