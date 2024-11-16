@@ -1,5 +1,3 @@
-using Sandbox.Network;
-
 namespace ShrimplePawns.Example;
 
 public sealed class Game : Component, Component.INetworkListener
@@ -13,7 +11,7 @@ public sealed class Game : Component, Component.INetworkListener
 	protected override void OnStart()
 	{
 		if ( !Networking.IsActive )
-			Networking.CreateLobby( new LobbyConfig() );
+			Networking.CreateLobby( new Sandbox.Network.LobbyConfig() );
 	}
 
 	public void OnActive( Connection channel )
