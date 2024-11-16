@@ -3,7 +3,7 @@ namespace ShrimplePawns;
 public abstract class Pawn : Component
 {
 	[HostSync]
-	private Client Owner { get; set; }
+	protected Client Owner { get; set; }
 
 	public bool TryGetOwner<T>( out T owner ) where T : Client
 	{
