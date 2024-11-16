@@ -2,7 +2,7 @@ namespace ShrimplePawns;
 
 public abstract class Pawn : Component
 {
-	[HostSync, Sync]
+	[HostSync]
 	public Client Owner { get; private set; }
 
 	public virtual void OnAssign( Client client )
